@@ -12,7 +12,7 @@
 <body>
     <div class='weather'>
         <div class='searchCity'>
-            <input type="text" class="input" placeholder="City">
+            <input type="text" class="input" placeholder="City" onkeyup="enterAction(event)">
             <span class='button' onclick="gettingWeather()">
                 <i style='font-size:20px; color:white' class='fas'>&#xf002;</i>
             </span>
@@ -26,11 +26,13 @@
         <div class="country">
             <span class="countryResult"></span>
             <span class='text'>Country</span>
+            <img src="" alt="" class='flag'>
         </div>
         <div class="temperature">
             <span class='temperatureResult'></span>
             <span class='text'>Temperature</span>
             <i style='font-size:24px' class='fas temp'>&#xf769;</i>
+            <img src="" alt="" class='tempIcon'>
         </div>
     </div>
 
