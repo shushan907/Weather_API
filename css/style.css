@@ -36,6 +36,11 @@ body {
     position: relative;
     border: 1px solid #E4E4E4;
     box-shadow: 3px 3px #E4E4E4;
+    text-align: center;
+}
+
+.cityResult, .countryResult, .temperatureResult {
+    line-height: 200px;
 }
 
 .text {

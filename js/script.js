@@ -12,8 +12,6 @@ const iconTemp = document.getElementById('tempIcon');
 (function () {
     window.navigator.geolocation.getCurrentPosition((position) => {
         const { latitude, longitude } = position.coords;
-        console.log(latitude, 'latitude');
-        console.log(longitude, 'longitude')
     })
 })()
 
@@ -24,11 +22,15 @@ const gettingWeather = () => {
     const inputValue = document.querySelector('.input').value;
     if (inputValue) {
         async function getCountry() {
-            let response = await fetch(`${API_URL}${inputValue}&appid=${API_KEY}&units=metric`);
+            let response = await fetch(`${API_URL}${inputValue}&APPID=${API_KEY}&units=metric`);
             let info = await response.json();
-            console.log(info)
+            console.log(info);
+            document.querySelector('.cityResult').innerText = inputValue;
+            document.querySelector('.countryResult').innerText = info['sys']['country'];
+            document.querySelector('.temperatureResult').innerText = `${info['main']['temp']}°C`;
         }
-        getCountry()
+        getCountry();
+
         
         document.getElementById('errorMessage').innerText = '';
     } else {
