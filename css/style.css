@@ -37,6 +37,8 @@ body {
     border: 1px solid #E4E4E4;
     box-shadow: 3px 3px #E4E4E4;
     text-align: center;
+    background-repeat: no-repeat;
+    background-position: right bottom;
 }
 
 .cityResult, .countryResult, .temperatureResult {

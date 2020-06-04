@@ -28,6 +28,7 @@ const gettingWeather = () => {
             document.querySelector('.cityResult').innerText = inputValue;
             document.querySelector('.countryResult').innerText = info['sys']['country'];
             document.querySelector('.temperatureResult').innerText = `${info['main']['temp']}°C`;
+            document.querySelector('.country').style.backgroundImage = `URL(https://countryflags.io/${info['sys']['country']}/flat/64.png)`;
         }
         getCountry();
 
