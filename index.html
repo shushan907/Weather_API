@@ -5,24 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
 </head>
 <body>
     <div class='weather'>
         <div class='searchCity'>
             <input type="text" class="input" placeholder="City">
-            <span class='button' onclick="gettingWeather()">&#128269</span>
+            <span class='button' onclick="gettingWeather()">
+                <i style='font-size:20px; color:white' class='fas'>&#xf002;</i>
+            </span>
             <span id="errorMessage"></span>
         </div>
-        <div class="city"><span class='cityResult'></span><span class='text'>City</span></div>
+        <div class="city">
+            <span class='cityResult'></span>
+            <span class='text'>City</span>
+            <i style='font-size:24px' class='fas location'>&#xf3c5;</i>
+        </div>
         <div class="country">
             <span class="countryResult"></span>
             <span class='text'>Country</span>
         </div>
         <div class="temperature">
-            <img src="" alt="" id="tempIcon">
             <span class='temperatureResult'></span>
-            <span><i class="fa fa-thermometer-empty" aria-hidden="true"></i></span>
             <span class='text'>Temperature</span>
+            <i style='font-size:24px' class='fas temp'>&#xf769;</i>
         </div>
     </div>
 

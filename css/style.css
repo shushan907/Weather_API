@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #FDF7E3;
+    background-color: #DEDCDC;
     font-family: sans-serif;
     font-size: 22px;
 }
@@ -32,44 +32,43 @@ body {
 }
 
 .city, .country, .temperature {
-    background-color: rgba(255, 255, 255, 0.788);
+    background-color: #F5F5F5;
     position: relative;
-    border: 1px solid #E4E4E4;
+    border: 1px solid rgb(216, 213, 213);
     box-shadow: 3px 3px #E4E4E4;
     text-align: center;
     background-repeat: no-repeat;
-    background-position: right bottom;
+    background-position: left top;
+    font-size: 40px;
 }
 
 .cityResult, .countryResult, .temperatureResult {
     line-height: 200px;
 }
 
+.location, .temp {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
 .text {
     position: absolute;
     bottom: 8px;
-    left: 16px;
+    left: 2px;
     font-size: 18px;
-    color: teal;
+    color: rgb(5, 6, 59);
 }
+
 .searchCity {
     height: 90px;
     background-color: #4169E1;
-    line-height: 80px;
+    line-height: 90px;
     width: 98%;
     border-radius: 10px;
     position: relative;
 }
 
-.button {
-    color: white;
-    font-size: 20px;
-    background-color: #4169E1;
-    width: 40px;
-    height: 40px;
-    margin: 15px 5px;
-    border: none;
-}
 
 .input {
     margin-left: 140px;
@@ -79,6 +78,7 @@ body {
     font-size: 20px;
     color: rgba(0, 0, 0, 0.555);
     border: 1px solid seashell;
+    padding-left: 5px;
 }
 
 #errorMessage {
