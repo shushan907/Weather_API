@@ -10,6 +10,7 @@ body {
 }
 
 .weather {
+    position: relative;
     margin: 20px auto;
     display: grid;
     width: 600px;
@@ -92,6 +93,7 @@ body {
     left: 5px;
     top: 0;
 }
+
 .tempIcon {
     position: absolute;
     right: 5px;

@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dropndown.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
 <body>
     <div class='weather'>
+        <ul class="dropdown">
+            <li class = 'li_1'></li>
+            <li class = 'li_2'></li>
+            <li class = 'li_3'></li>
+        </ul>
         <div class='searchCity'>
             <input type="text" class="input" placeholder="City" onkeyup="enterAction(event)">
             <span class='button' onclick="gettingWeather()">
@@ -35,7 +41,6 @@
             <img src="" alt="" class='tempIcon'>
         </div>
     </div>
-
     <script src='/js/script.js'></script>
 </body>
 </html>

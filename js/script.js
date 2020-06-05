@@ -25,6 +25,7 @@ function setCityWeather(info) {
     iconTemp.src = `${TEMP_URL}${info.weather[0].icon}.png`;
 }
 
+
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 //----------------------Navigator---------------------------------------
@@ -78,13 +79,31 @@ document.querySelector('.input').addEventListener('click', () => {
     document.querySelector('.input').style.outline = "none";
 });
 
+function findCity(li, findData) {
+    document.querySelector(li).addEventListener ('click', () => {
+       document.querySelector('.input').value = findData;
+       document.querySelector('.dropdown').style.display = 'none'; 
+    })
+}
+
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+const fillLi = (findData) => {
+    document.querySelector('.dropdown').style.display = 'block';
+    setQS('.li_1', findData[0]);
+    setQS('.li_2', findData[1]);
+    setQS('.li_3', findData[2]);
+    findCity('.li_1', findData[0]);
+    findCity('.li_2', findData[1]);
+    findCity('.li_3', findData[2]);
+}
 document.querySelector('.input').addEventListener('keyup', () => {
     const inputValue = document.querySelector('.input').value.toLowerCase();
     (async function () {
         let response = await fetch('../json/city.list.json');
         let data = await response.json();
         let transformData = data.map(val => val.name);
-        let findData = transformData.filter(val => val.toLowerCase().indexOf(inputValue) == 0)
+        let findSearchData = transformData.filter(val => val.toLowerCase().indexOf(inputValue) == 0);
+        fillLi(findSearchData);
     })();
 });
+
