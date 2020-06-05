@@ -29,7 +29,7 @@ function setCityWeather(info) {
 
 //----------------------Navigator---------------------------------------
 
-(function () {
+const userLocation = function () {
     window.navigator.geolocation.getCurrentPosition((position) => {
         const { latitude, longitude } = position.coords;
         (async function () {
@@ -38,8 +38,8 @@ function setCityWeather(info) {
         setCityWeather(data);
         })();
     });
-})();
-
+};
+userLocation();
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 //--------------------Search City---------------------------------------
@@ -49,8 +49,13 @@ const gettingWeather = () => {
         setQS('#errorMessage', '');
         (async function () {
             let response = await fetch(`${API_URL}weather?q=${inputValue}&APPID=${API_KEY}&units=metric`);
-            let info = await response.json();
-            setCityWeather(info);
+            if (response.status == 404) {
+                setQS('#errorMessage', 'Please, enter the correct city name!');
+                userLocation();
+            } else {
+                let info = await response.json();
+                setCityWeather(info);
+            }
         })();
     } else {
         setQS('#errorMessage', 'Please, enter the city name!');
@@ -62,9 +67,7 @@ const gettingWeather = () => {
 //----------------input keyup ENTER-------------------------------------
 
 const enterAction = (event) => {
-    if(event.key === 'Enter') {
-        gettingWeather()
-    }
+    if (event.key === 'Enter') gettingWeather();
 }
 
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -73,7 +76,7 @@ const enterAction = (event) => {
 
 document.querySelector('.input').addEventListener('click', () => {
     document.querySelector('.input').style.outline = "none";
-})
+});
 
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 document.querySelector('.input').addEventListener('keyup', () => {
@@ -83,6 +86,5 @@ document.querySelector('.input').addEventListener('keyup', () => {
         let data = await response.json();
         let transformData = data.map(val => val.name);
         let findData = transformData.filter(val => val.toLowerCase().indexOf(inputValue) == 0)
-        console.log(findData);
-})()
-})
+    })();
+});
