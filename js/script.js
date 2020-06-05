@@ -71,8 +71,18 @@ const enterAction = (event) => {
 
 //---------------------------------EvevtListener------------------------
 
-addEventListener('click', () => {
+document.querySelector('.input').addEventListener('click', () => {
     document.querySelector('.input').style.outline = "none";
 })
 
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+document.querySelector('.input').addEventListener('keyup', () => {
+    const inputValue = document.querySelector('.input').value.toLowerCase();
+    (async function () {
+        let response = await fetch('../json/city.list.json');
+        let data = await response.json();
+        let transformData = data.map(val => val.name);
+        let findData = transformData.filter(val => val.toLowerCase().indexOf(inputValue) == 0)
+        console.log(findData);
+})()
+})
