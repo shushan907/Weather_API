@@ -96,6 +96,7 @@ const fillLi = (findData) => {
     findCity('.li_2', findData[1]);
     findCity('.li_3', findData[2]);
 }
+
 document.querySelector('.input').addEventListener('keyup', () => {
     const inputValue = document.querySelector('.input').value.toLowerCase();
     (async function () {
@@ -103,7 +104,8 @@ document.querySelector('.input').addEventListener('keyup', () => {
         let data = await response.json();
         let transformData = data.map(val => val.name);
         let findSearchData = transformData.filter(val => val.toLowerCase().indexOf(inputValue) == 0);
-        fillLi(findSearchData);
+        if (findSearchData.length > 3) fillLi(findSearchData);
+        else document.querySelector('.dropdown').style.display = 'none';
     })();
 });
 
