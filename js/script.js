@@ -79,7 +79,7 @@ document.querySelector('.input').addEventListener('click', () => {
     document.querySelector('.input').style.outline = "none";
 });
 
-function findCity(li, findData) {
+/*function findCity(li, findData) {
     document.querySelector(li).addEventListener ('click', () => {
        document.querySelector('.input').value = findData;
        document.querySelector('.dropdown').style.display = 'none'; 
@@ -108,4 +108,4 @@ document.querySelector('.input').addEventListener('keyup', () => {
         else document.querySelector('.dropdown').style.display = 'none';
     })();
 });
-
+/*
