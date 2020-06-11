@@ -108,4 +108,4 @@ document.querySelector('.input').addEventListener('keyup', () => {
         else document.querySelector('.dropdown').style.display = 'none';
     })();
 });
-/*
+*/
